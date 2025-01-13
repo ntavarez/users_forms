@@ -1,0 +1,75 @@
+* {
+    font-family: Roboto;
+}
+
+h1 {
+    text-align: center;
+}
+
+form p {
+    border-radius: 10%;
+    padding: 0.6em 1em;
+}
+
+form label {
+    padding-right: 0.2em;
+}
+
+form input {
+    padding: 0.5em;
+    border-radius: 1em;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+form {
+    margin: 0 auto;
+    border-color: rgb(201, 230, 253);
+    border-style: groove;
+    border-radius: 2%;
+}
+
+.forms {
+    text-align: center;
+}
+
+#submit {
+    margin: 1.1em auto;
+    padding: 0.5em 1.3em;
+    border-radius: 1em;
+}
+
+.tab {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+table {
+    margin: 0 auto;
+}
+
+td {
+    padding: 0.4em;
+}
+
+.attr-tab {
+    background-color: rgb(201, 230, 253);
+}
+
+#btn-edt, #btn-del {
+    padding: 0.5em; 
+}
+
+td {
+    text-align: left;
+}
+
+
+a {
+    margin-top: 1em;
+}

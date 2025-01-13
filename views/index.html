@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="../assets/styles.css">
+
+    <title>Cadastro de usuários</title>
+</head>
+
+<body>
+    <h1>Cadastro de usuários</h1>
+
+    <div class="content">
+        <form id="form" method="POST" action="app.php">
+            <div class="forms">
+                <p>
+                    <label for="name">Nome</label>
+                    <input type="text" name="name" id="name" autocomplete="given-name family-name"
+                        placeholder="Digite seu nome aqui." required>
+                </p>
+
+                <p>
+                    <label for="email">E-mail</label>
+                    <input type="e-mail" id="email" name="email" autocomplete="off"
+                        placeholder="Digite seu e-mail aqui." required>
+                </p>
+
+                <p>
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password" autocomplete="new-password"
+                        placeholder="Digite sua senha aqui." required>
+                </p>
+
+                <input id="submit" type="submit" name="submit" value="Enviar">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('email').addEventListener('blur', function () {
+            let email = document.getElementById('email').value;
+
+            if (email.length > 0) {
+                fetch(`../controllers/app.php?email=${encodeURIComponent(email)}`, {
+                    method: 'GET',
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert('E-mail já existente! Favor cadastrar outro e-mail.')
+                        }
+                    })
+                    .catch(error => {
+                        alert('Erro ao pesquisar e-mail!');
+                    });
+            }
+        });
+
+        document.getElementById('password').addEventListener('blur', function () {
+            let password = document.getElementById('password').value;
+
+            if (password.length > 0 && password.length < 6) {
+                alert('A senha deve ter no mínimo 6 caracteres! Favor inserir outra senha.');
+            }
+        });
+
+        document.getElementById('form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            let userData = new FormData();
+
+            userData.append('name', name);
+            userData.append('email', email);
+            userData.append('password', password);
+
+            fetch('../controllers/app.php', {
+                method: 'POST',
+                body: userData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Dados cadastrados com sucesso!');
+                        window.location.href = 'userList.html';
+                    } else {
+                        alert('Dados não cadastrados! É possível que o e-mail já esteja em uso e/ou a senha tenha menos de 6 dígitos.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                    alert('Erro ao enviar os dados!');
+                });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="../scripts/userlist.js"></script>
+    <link rel="stylesheet" type="text/css" href="../assets/styles.css">
+
+    <title>Lista de usuários cadastrados</title>
+</head>
+
+<body>
+    <div class="tab">
+        <h1>Listagem de usuários</h1>
+
+        <table id="userTable">
+            <thead>
+                <tr class="attr-tab">
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Tabela dinâmica feita pelo Javascript -->
+            </tbody>
+        </table>
+
+        <a href="index.html">Voltar para cadastro</a>
+    </div>
+    <script>
+        window.onload = loadUsers;
+    </script>
+</body>
+</html>
