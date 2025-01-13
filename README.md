@@ -15,8 +15,7 @@ Esse projeto foi desenvolvido no Windows e com o uso do Xampp para execução do
 ```
 Pronto! As páginas HTML do projeto poderão ser acessadas no navegador via endereço http://127.0.0.1/[nome-da-pasta-do-projeto]/views/[nome-do-arquivo].html.
 
-Para acessar o banco de dados no Xampp, basta clicar no botão Admin do MySQL, conforme imagem abaixo:
-
+Para acessar o banco de dados no Xampp no navegador, basta abrir o Control Panel do Xampp e clicar no botão Admin do MySQL.
 
 
 
