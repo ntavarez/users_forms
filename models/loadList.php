@@ -6,14 +6,18 @@ $result = null;
 
 $conn = connection($conn);
 
-$query = "SELECT id, nome, email FROM usuarios";
-$result = mysqli_query($conn, $query);
+$stmt = mysqli_prepare($conn, 'SELECT id, nome, email FROM usuarios');
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
 
-if (mysqli_affected_rows($conn) > 0) {
+if (mysqli_stmt_affected_rows($stmt) > 0) {
     $users = [];
-    while ($row = mysqli_fetch_assoc($result)) {
+    
+    while ($row = mysqli_fetch_array($result)) {
         $users[] = $row;
     }
-    echo json_encode(value: $users);
+    echo json_encode($users);
 }
+
+close($conn);
 ?>
