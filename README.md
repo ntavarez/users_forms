@@ -1,7 +1,7 @@
 
 # Cadastro de usuários
 
-O sistema permite que o usuário preencha um formulário de cadastro com suas informações. Após o cadastro, o usuário é direcionado a uma página que lista em uma tabela todos os usuários cadastrados.
+O sistema permite que o usuário preencha um formulário de cadastro com suas informações. Após o cadastro, o usuário é direcionado a uma página que lista em uma tabela todos os usuários cadastrados. A tabela pode ser modificada pelo usuário, através da edição ou exclusão de registros.
 
 ## Instalação
 
